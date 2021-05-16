@@ -11,14 +11,15 @@ use Firebase\JWT\JWT;
 
 class AuthController extends AbstractController
 {
-
     /**
      * @Route("/auth/register", name="register", methods={"POST"})
      */
     public function register(Request $request, UserPasswordEncoderInterface $encoder)
     {
-        $password = $request->get('password');
-        $email = $request->get('email');
+        $parameters = json_decode($request->getContent(), true);
+
+        $password = $parameters['password'];
+        $email = $parameters['email'];
         $user = new User();
         $user->setPassword($encoder->encodePassword($user, $password));
         $user->setEmail($email);
@@ -35,10 +36,12 @@ class AuthController extends AbstractController
      */
     public function login(Request $request, \App\Repository\UserRepository $userRepository, UserPasswordEncoderInterface $encoder)
     {
+        $parameters = json_decode($request->getContent(), true);
+
         $user = $userRepository->findOneBy([
-            'email'=>$request->get('email'),
+            'email' => $parameters['email'],
         ]);
-        if (!$user || !$encoder->isPasswordValid($user, $request->get('password'))) {
+        if (!$user || !$encoder->isPasswordValid($user, $parameters['password'])) {
             return $this->json([
                 'message' => 'email or password is wrong.',
             ]);

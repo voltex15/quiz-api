@@ -19,13 +19,11 @@ class JwtAuthenticator extends AbstractGuardAuthenticator
 {
     private $em;
     private $params;
-    private $passwordEncoder;
 
-    public function __construct(EntityManagerInterface $em, ContainerBagInterface $params, UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(EntityManagerInterface $em, ContainerBagInterface $params)
     {
         $this->em = $em;
         $this->params = $params;
-        $this->passwordEncoder = $passwordEncoder;
     }
 
     public function start(Request $request, AuthenticationException $authException = null)
@@ -66,9 +64,7 @@ class JwtAuthenticator extends AbstractGuardAuthenticator
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        //return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
         return true;
-        //return $this->getUser()->isPasswordValid($user, $credentials['password']);
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
