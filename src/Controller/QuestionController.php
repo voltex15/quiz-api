@@ -19,7 +19,7 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/questions", name="getQuestions", methods={"GET"})
+     * @Route("/api/questions", name="getQuestions", methods={"GET"})
      */
     public function getQuestions(): JsonResponse
     {
@@ -32,7 +32,7 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/question/{id}", name="getQuestionById", methods={"GET"})
+     * @Route("/api/questions/{id}", name="getQuestionById", methods={"GET"})
      */
     public function getQuestion(int $id): JsonResponse
     {
@@ -45,7 +45,7 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/questionsByCategory/{categoryId}", name="getQuestionsByCategoryId", methods={"GET"})
+     * @Route("/api/questionsByCategory/{categoryId}", name="getQuestionsByCategoryId", methods={"GET"})
      */
     public function getQuestionsByCategoryId(int $categoryId): JsonResponse
     {
@@ -58,7 +58,7 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/question/{id}", name="postQuestion", methods={"POST"})
+     * @Route("/api/questions/{id}", name="postQuestion", methods={"POST"})
      */
     public function postQuestion(int $id): JsonResponse
     {
@@ -70,7 +70,7 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/question/{id}", name="putQuestion", methods={"PUT"})
+     * @Route("/api/questions/{id}", name="putQuestion", methods={"PUT"})
      */
     public function putQuestion(int $id): JsonResponse
     {
@@ -82,7 +82,7 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/question/{id}", name="deleteQuestion", methods={"DELETE"})
+     * @Route("/api/questions/{id}", name="deleteQuestion", methods={"DELETE"})
      */
     public function deleteQuestion(int $id): JsonResponse
     {

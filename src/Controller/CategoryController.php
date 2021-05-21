@@ -19,7 +19,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/categories", name="getCategories", methods={"GET"})
+     * @Route("/api/categories", name="getCategories", methods={"GET"})
      */
     public function getCategories(): JsonResponse
     {
@@ -32,7 +32,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/category/{id}", name="getCategoryById", methods={"GET"})
+     * @Route("/api/categories/{id}", name="getCategoryById", methods={"GET"})
      */
     public function getCategory(int $id): JsonResponse
     {
@@ -45,7 +45,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/category/{id}", name="postCategory", methods={"POST"})
+     * @Route("/api/categories/{id}", name="postCategory", methods={"POST"})
      */
     public function postCategory(int $id): JsonResponse
     {
@@ -57,7 +57,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/category/{id}", name="putCategory", methods={"PUT"})
+     * @Route("/api/categories/{id}", name="putCategory", methods={"PUT"})
      */
     public function putCategory(int $id): JsonResponse
     {
@@ -69,7 +69,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/category/{id}", name="deleteCategory", methods={"DELETE"})
+     * @Route("/api/categories/{id}", name="deleteCategory", methods={"DELETE"})
      */
     public function deleteCategory(int $id): JsonResponse
     {
