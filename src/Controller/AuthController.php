@@ -43,7 +43,7 @@ class AuthController extends AbstractController
         ]);
         if (!$user || !$encoder->isPasswordValid($user, $parameters['password'])) {
             return $this->json([
-                'message' => 'email or password is wrong.',
+                'message' => 'Email or password is wrong.',
             ]);
         }
         $payload = [
@@ -53,7 +53,7 @@ class AuthController extends AbstractController
 
         $jwt = JWT::encode($payload, $this->getParameter('jwt_secret'), 'HS256');
         return $this->json([
-            'message' => 'success!',
+            'message' => 'Success!',
             'email' => $parameters['email'],
             'token' => sprintf('Bearer %s', $jwt),
         ]);
