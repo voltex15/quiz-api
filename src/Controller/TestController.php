@@ -1,11 +1,12 @@
 <?php
-// src/Controller/LuckyController.php
+
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TestController
+class TestController extends AbstractController
 {
     /**
     * @Route("/api/test", methods={"GET"})

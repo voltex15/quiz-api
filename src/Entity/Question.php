@@ -25,11 +25,6 @@ class Question
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=User::class, mappedBy="question")
-     */
-    private $createdBy;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="questions")
      */
     private $category;
